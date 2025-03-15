@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - Galactic Grid</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Exo+2:wght@300;400;600&display=swap');
+        
+        body {
+            font-family: 'Exo 2', sans-serif;
+            line-height: 1.6;
+            color: #e0e0ff;
+            margin: 0;
+            padding: 0;
+            background-color: #0a0a1a;
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(40, 60, 150, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(60, 120, 200, 0.1) 0%, transparent 50%);
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        /* Star background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(1px 1px at 10% 10%, rgba(255, 255, 255, 0.9) 50%, transparent 100%),
+                radial-gradient(1px 1px at 20% 50%, rgba(255, 255, 255, 0.8) 50%, transparent 100%),
+                radial-gradient(1px 1px at 30% 30%, rgba(255, 255, 255, 0.7) 50%, transparent 100%),
+                radial-gradient(1px 1px at 40% 80%, rgba(255, 255, 255, 0.9) 50%, transparent 100%),
+                radial-gradient(1px 1px at 50% 40%, rgba(255, 255, 255, 0.8) 50%, transparent 100%),
+                radial-gradient(1px 1px at 60% 60%, rgba(255, 255, 255, 0.7) 50%, transparent 100%),
+                radial-gradient(1px 1px at 70% 20%, rgba(255, 255, 255, 0.9) 50%, transparent 100%),
+                radial-gradient(1px 1px at 80% 70%, rgba(255, 255, 255, 0.8) 50%, transparent 100%),
+                radial-gradient(1px 1px at 90% 90%, rgba(255, 255, 255, 0.7) 50%, transparent 100%);
+            z-index: -1;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-top: 30px;
+            position: relative;
+        }
+        
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            color: #7b68ee;
+            font-size: 2.5rem;
+            margin: 0;
+            text-shadow: 0 0 10px rgba(123, 104, 238, 0.5);
+            letter-spacing: 2px;
+        }
+        
+        header p {
+            color: #64ffda;
+            font-size: 1.1rem;
+            margin-top: 10px;
+        }
+        
+        .content {
+            background-color: rgba(20, 20, 40, 0.7);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), 
+                        0 0 15px rgba(123, 104, 238, 0.3);
+            margin-bottom: 30px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(123, 104, 238, 0.2);
+        }
+        
+        h2 {
+            font-family: 'Orbitron', sans-serif;
+            color: #64ffda;
+            border-bottom: 1px solid rgba(100, 255, 218, 0.3);
+            padding-bottom: 10px;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+        
+        h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: #7b68ee;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        h3::before {
+            content: '•';
+            color: #64ffda;
+            margin-right: 10px;
+            font-size: 1.5em;
+        }
+        
+        a {
+            color: #64ffda;
+            text-decoration: none;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+            position: relative;
+        }
+        
+        a:hover {
+            color: #7b68ee;
+            text-shadow: 0 0 8px rgba(123, 104, 238, 0.5);
+        }
+        
+        a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: #64ffda;
+            transition: width 0.3s ease;
+        }
+        
+        a:hover::after {
+            width: 100%;
+        }
+        
+        .grid-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(100, 255, 218, 0.05) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(100, 255, 218, 0.05) 1px, transparent 1px);
+            background-size: 30px 30px;
+            z-index: -1;
+            opacity: 0.3;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 30px;
+            padding-bottom: 30px;
+            border-top: 1px solid rgba(123, 104, 238, 0.3);
+            position: relative;
+        }
+        
+        .nav-links {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .nav-links a {
+            margin: 0 15px;
+            padding: 8px 16px;
+            background-color: rgba(30, 30, 60, 0.5);
+            border-radius: 20px;
+            border: 1px solid rgba(123, 104, 238, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            background-color: rgba(123, 104, 238, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(123, 104, 238, 0.3);
+        }
+        
+        .nav-links a::after {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-pattern"></div>
+    <div class="container">
+        <header>
+            <h1>TERMS OF SERVICE</h1>
+            <p>Last updated: January 2025</p>
+        </header>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="privacy-policy.html">Privacy Policy</a>
+        </div>
+
+        <div class="content">
+            <h2>Terms of Service</h2>
+
+            <h3>1. Acceptance of Terms</h3>
+            <p>
+                By using this application, you agree to these terms.
+            </p>
+
+            <h3>2. Use of the App</h3>
+            <p>
+                You may use this app only for personal, non-commercial purposes.
+            </p>
+
+            <h3>3. Limitation of Liability</h3>
+            <p>
+                The app is provided "as is" without warranties of any kind. The developer is not responsible for any damages or data loss.
+            </p>
+
+            <h3>4. Changes to Terms</h3>
+            <p>
+                We may update these terms at any time.
+            </p>
+
+            <h3>5. Contact</h3>
+            <p>
+                If you have questions, contact us at: cosmic.grid.help@gmail.com
+            </p>
+        </div>
+
+        <footer>
+            <p>© 2025 Galactic Grid. All rights reserved.</p>
+            <p>Contact: cosmic.grid.help@gmail.com</p>
+        </footer>
+    </div>
+</body>
+</html> 

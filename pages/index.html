@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galactic Grid - Cosmic Puzzle Game</title>
+    <link rel="icon" href="images/ufo.png" type="image/png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Exo+2:wght@300;400;600&display=swap');
+        
+        body {
+            font-family: 'Exo 2', sans-serif;
+            line-height: 1.6;
+            color: #e0e0ff;
+            margin: 0;
+            padding: 0;
+            background-color: #0a0a1a;
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(40, 60, 150, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(60, 120, 200, 0.1) 0%, transparent 50%);
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        /* Star background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(1px 1px at 10% 10%, rgba(255, 255, 255, 0.9) 50%, transparent 100%),
+                radial-gradient(1px 1px at 20% 50%, rgba(255, 255, 255, 0.8) 50%, transparent 100%),
+                radial-gradient(1px 1px at 30% 30%, rgba(255, 255, 255, 0.7) 50%, transparent 100%),
+                radial-gradient(1px 1px at 40% 80%, rgba(255, 255, 255, 0.9) 50%, transparent 100%),
+                radial-gradient(1px 1px at 50% 40%, rgba(255, 255, 255, 0.8) 50%, transparent 100%),
+                radial-gradient(1px 1px at 60% 60%, rgba(255, 255, 255, 0.7) 50%, transparent 100%),
+                radial-gradient(1px 1px at 70% 20%, rgba(255, 255, 255, 0.9) 50%, transparent 100%),
+                radial-gradient(1px 1px at 80% 70%, rgba(255, 255, 255, 0.8) 50%, transparent 100%),
+                radial-gradient(1px 1px at 90% 90%, rgba(255, 255, 255, 0.7) 50%, transparent 100%);
+            z-index: -1;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-top: 30px;
+            position: relative;
+        }
+        
+        /* UFO in header */
+        .ufo-container {
+            position: relative;
+            height: 120px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .ufo-image {
+            width: 200px;
+            height: auto;
+            filter: drop-shadow(0 0 15px rgba(123, 104, 238, 0.8));
+            animation: hover 3s ease-in-out infinite;
+        }
+        
+        @keyframes hover {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .beam {
+            position: absolute;
+            top: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 40px;
+            background: linear-gradient(to bottom, rgba(123, 104, 238, 0.8), transparent);
+            clip-path: polygon(0 0, 100% 0, 80% 100%, 20% 100%);
+            animation: beam 3s ease-in-out infinite;
+            z-index: -1;
+        }
+        
+        @keyframes beam {
+            0%, 100% { opacity: 0.3; height: 40px; }
+            50% { opacity: 0.7; height: 50px; }
+        }
+        
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            color: #7b68ee;
+            font-size: 3rem;
+            margin: 0;
+            text-shadow: 0 0 10px rgba(123, 104, 238, 0.5);
+            letter-spacing: 2px;
+        }
+        
+        header p {
+            color: #64ffda;
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+        
+        .app-description {
+            background-color: rgba(20, 20, 40, 0.7);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), 
+                        0 0 15px rgba(123, 104, 238, 0.3);
+            margin-bottom: 30px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(123, 104, 238, 0.2);
+        }
+        
+        h2 {
+            font-family: 'Orbitron', sans-serif;
+            color: #64ffda;
+            border-bottom: 1px solid rgba(100, 255, 218, 0.3);
+            padding-bottom: 10px;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .feature {
+            margin-bottom: 25px;
+            padding: 15px;
+            border-radius: 10px;
+            background-color: rgba(30, 30, 60, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(123, 104, 238, 0.3);
+        }
+        
+        .feature h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: #7b68ee;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .feature h3::before {
+            content: '•';
+            color: #64ffda;
+            margin-right: 10px;
+            font-size: 1.5em;
+        }
+        
+        .grid-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(100, 255, 218, 0.05) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(100, 255, 218, 0.05) 1px, transparent 1px);
+            background-size: 30px 30px;
+            z-index: -1;
+            opacity: 0.3;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 30px;
+            padding-bottom: 30px;
+            border-top: 1px solid rgba(123, 104, 238, 0.3);
+            position: relative;
+        }
+        
+        .footer-links a {
+            margin: 0 15px;
+            color: #64ffda;
+            text-decoration: none;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+            position: relative;
+        }
+        
+        .footer-links a:hover {
+            color: #7b68ee;
+            text-shadow: 0 0 8px rgba(123, 104, 238, 0.5);
+        }
+        
+        .footer-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #64ffda;
+            transition: width 0.3s ease;
+        }
+        
+        .footer-links a:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-pattern"></div>
+    <div class="container">
+        <header>
+            <div class="ufo-container">
+                <img src="images/ufo.png" alt="UFO" class="ufo-image">
+                <div class="beam"></div>
+            </div>
+            <h1>GALACTIC GRID</h1>
+            <p>A strategic UFO placement puzzle with a cosmic theme</p>
+        </header>
+
+        <div class="app-description">
+            <h2>About Galactic Grid</h2>
+            <p>
+                Galactic Grid is a strategic puzzle game set in a cosmic environment. 
+                Players navigate through a space-themed journey, solving increasingly challenging puzzles by placing flying saucers on a grid according to specific rules.
+            </p>
+
+            <h2>Game Objective</h2>
+            <p>
+                The goal is to place exactly one flying saucer in each colored sector of the grid while following the placement rules. 
+                Flying saucers cannot be placed in the same row or column as another flying saucer, requiring careful strategic thinking to solve each puzzle.
+            </p>
+
+            <h2>Features</h2>
+            
+            <div class="feature">
+                <h3>Strategic Puzzle Gameplay</h3>
+                <p>Challenge your mind with a unique UFO placement puzzle that requires logical thinking and planning. Each level presents a new challenge with different grid layouts and sector configurations.</p>
+            </div>
+
+            <div class="feature">
+                <h3>Progressive Difficulty</h3>
+                <p>Start with simple 5x5 grids and advance to more complex puzzles as you progress through the cosmic journey. The game features multiple level maps with different visualization styles.</p>
+            </div>
+
+            <div class="feature">
+                <h3>Cosmic Visual Theme</h3>
+                <p>Enjoy a beautiful space-themed visual design with star patterns, cosmic animations, and a sleek interface that enhances the puzzle-solving experience.</p>
+            </div>
+
+            <div class="feature">
+                <h3>Performance Tracking</h3>
+                <p>Track your best scores and completion times for each level, challenging yourself to improve with each attempt.</p>
+            </div>
+
+            <div class="feature">
+                <h3>Hint System</h3>
+                <p>Get assistance when needed with an intelligent hint system that helps guide you toward the solution without giving everything away.</p>
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2025 Galactic Grid. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms-of-services.html">Terms of Service</a>
+            </div>
+            <p>Contact: cosmic.grid.help@gmail.com</p>
+        </footer>
+    </div>
+</body>
+</html> 
