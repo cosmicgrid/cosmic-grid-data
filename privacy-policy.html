@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy - Galactic Grid</title>
+    <link rel="icon" href="images/ufo.png" type="image/png">
     <script src="js/analytics.js"></script>
     <script src="js/cookie-consent.js"></script>
     <style>
@@ -198,6 +199,34 @@
             position: absolute;
             left: -20px;
         }
+
+        /* Navigation bar styles */
+        .nav-bar {
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+            margin-bottom: 30px;
+            border-bottom: 1px solid rgba(123, 104, 238, 0.3);
+        }
+        
+        .nav-bar a {
+            color: #64ffda;
+            text-decoration: none;
+            padding: 8px 15px;
+            margin: 0 10px;
+            border-radius: 8px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        .nav-bar a:hover {
+            background-color: rgba(123, 104, 238, 0.2);
+            color: #7b68ee;
+        }
+        
+        .nav-bar a.active {
+            background-color: rgba(123, 104, 238, 0.3);
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -205,11 +234,13 @@
     <div class="container">
         <header>
             <h1>PRIVACY POLICY</h1>
-            <p>Last updated: January 2025</p>
+            <p>Last updated: April 2025</p>
         </header>
 
-        <div class="nav-links">
+        <div class="nav-bar">
             <a href="index.html">Home</a>
+            <a href="revenue-stats.html">Purchase Statistics</a>
+            <a href="privacy-policy.html" class="active">Privacy Policy</a>
             <a href="terms-of-services.html">Terms of Service</a>
         </div>
 
@@ -224,6 +255,7 @@
                 <li>Device type and operating system</li>
                 <li>User interactions within the app</li>
                 <li>Anonymized usage statistics</li>
+                <li>Purchase information (non-personally identifiable)</li>
             </ul>
             <p>
                 We do not collect or store personally identifiable information (PII).
@@ -252,13 +284,53 @@
                 For more details, refer to <a href="https://mixpanel.com/legal/privacy-policy/" target="_blank">Mixpanel's Privacy Policy</a>.
             </p>
 
-            <h3>3. Data Security</h3>
+            <h3>3. In-App Purchases and RevenueCat</h3>
             <p>
-                All collected data is securely stored and used solely for improving the app's performance. 
-                We do not sell, trade, or share user data with third parties.
+                Our app features in-app purchases for hint packages, which are processed through <strong>RevenueCat</strong>, 
+                a third-party service that manages in-app subscriptions and purchases. RevenueCat may collect the following information:
+            </p>
+            <ul>
+                <li>Purchase history (products purchased, dates, prices)</li>
+                <li>App store receipts</li>
+                <li>Device identifiers</li>
+                <li>Country or region of purchase</li>
+            </ul>
+            <p>
+                This information is used to:
+            </p>
+            <ul>
+                <li>Process and validate your purchases</li>
+                <li>Provide access to purchased content and features</li>
+                <li>Analyze purchasing trends and patterns (in anonymized form)</li>
+                <li>Provide customer support for purchase-related issues</li>
+            </ul>
+            <p>
+                For more information about how RevenueCat handles your data, please refer to 
+                <a href="https://www.revenuecat.com/privacy" target="_blank">RevenueCat's Privacy Policy</a>.
             </p>
 
-            <h3>4. Contact Information</h3>
+            <h3>4. Data Security</h3>
+            <p>
+                All collected data is securely stored and used solely for improving the app's performance and providing purchase-related services. 
+                We implement reasonable security measures to protect your information from unauthorized access, alteration, or destruction.
+            </p>
+            <p>
+                We do not sell, trade, or share user data with third parties except as described in this policy or when 
+                required to process purchases and provide our services.
+            </p>
+
+            <h3>5. Your Rights</h3>
+            <p>
+                You have the right to:
+            </p>
+            <ul>
+                <li>Access information about your purchases</li>
+                <li>Request deletion of your data (where applicable)</li>
+                <li>Opt out of analytics tracking</li>
+                <li>Contact us with privacy-related concerns</li>
+            </ul>
+
+            <h3>6. Contact Information</h3>
             <p>
                 If you have any questions about this Privacy Policy, please contact us at:
                 <br>
@@ -267,6 +339,12 @@
         </div>
 
         <footer>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="revenue-stats.html">Purchase Statistics</a>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms-of-services.html">Terms of Service</a>
+            </div>
             <p>© 2025 Galactic Grid. All rights reserved.</p>
             <p>Contact: cosmic.grid.help@gmail.com</p>
         </footer>
