@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terms of Service - Galactic Grid</title>
+    <link rel="icon" href="images/ufo.png" type="image/png">
     <script src="js/analytics.js"></script>
     <script src="js/cookie-consent.js"></script>
     <style>
@@ -158,28 +159,81 @@
             position: relative;
         }
         
-        .nav-links {
-            text-align: center;
-            margin: 20px 0;
+        .footer-links {
+            margin: 0 0 20px 0;
         }
         
-        .nav-links a {
+        .footer-links a {
             margin: 0 15px;
-            padding: 8px 16px;
-            background-color: rgba(30, 30, 60, 0.5);
-            border-radius: 20px;
-            border: 1px solid rgba(123, 104, 238, 0.3);
-            transition: all 0.3s ease;
+            color: #64ffda;
+            text-decoration: none;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+            position: relative;
         }
         
-        .nav-links a:hover {
+        .footer-links a:hover {
+            color: #7b68ee;
+            text-shadow: 0 0 8px rgba(123, 104, 238, 0.5);
+        }
+        
+        .footer-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #64ffda;
+            transition: width 0.3s ease;
+        }
+        
+        .footer-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* Navigation bar styles */
+        .nav-bar {
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+            margin-bottom: 30px;
+            border-bottom: 1px solid rgba(123, 104, 238, 0.3);
+        }
+        
+        .nav-bar a {
+            color: #64ffda;
+            text-decoration: none;
+            padding: 8px 15px;
+            margin: 0 10px;
+            border-radius: 8px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        .nav-bar a:hover {
             background-color: rgba(123, 104, 238, 0.2);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(123, 104, 238, 0.3);
+            color: #7b68ee;
         }
         
-        .nav-links a::after {
-            display: none;
+        .nav-bar a.active {
+            background-color: rgba(123, 104, 238, 0.3);
+            color: white;
+        }
+        
+        ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+        
+        ul li {
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        ul li::before {
+            content: '✦';
+            color: #64ffda;
+            position: absolute;
+            left: -20px;
         }
     </style>
 </head>
@@ -188,12 +242,14 @@
     <div class="container">
         <header>
             <h1>TERMS OF SERVICE</h1>
-            <p>Last updated: January 2025</p>
+            <p>Last updated: April 2025</p>
         </header>
 
-        <div class="nav-links">
+        <div class="nav-bar">
             <a href="index.html">Home</a>
+            <a href="revenue-stats.html">Purchase Statistics</a>
             <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="terms-of-services.html" class="active">Terms of Service</a>
         </div>
 
         <div class="content">
@@ -201,31 +257,84 @@
 
             <h3>1. Acceptance of Terms</h3>
             <p>
-                By using this application, you agree to these terms.
+                By using the Galactic Grid application, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use the application.
             </p>
 
             <h3>2. Use of the App</h3>
             <p>
-                You may use this app only for personal, non-commercial purposes.
+                Galactic Grid grants you a personal, non-exclusive, non-transferable, limited license to use the app for personal, non-commercial purposes. You may not:
+            </p>
+            <ul>
+                <li>Use the app for any illegal purpose</li>
+                <li>Modify, adapt, translate, reverse engineer, decompile, or disassemble the app</li>
+                <li>Remove any copyright, trademark, or other proprietary notices</li>
+                <li>Transfer, sell, rent, lease, or sublicense the app</li>
+            </ul>
+
+            <h3>3. In-App Purchases</h3>
+            <p>
+                Galactic Grid offers in-app purchases for hint packages to enhance your gameplay experience. By making an in-app purchase, you agree to the following:
+            </p>
+            <ul>
+                <li>All purchases are final and non-refundable (except as required by applicable law)</li>
+                <li>Payments are processed through your app store account (Apple App Store or Google Play Store)</li>
+                <li>We utilize RevenueCat to manage and process in-app purchases</li>
+                <li>Hint packages are non-consumable items that remain available after purchase</li>
+                <li>We are not responsible for any issues with payment processing through the app stores</li>
+            </ul>
+
+            <h3>4. RevenueCat Services</h3>
+            <p>
+                We use RevenueCat to manage in-app purchases. By making a purchase through our app, you acknowledge that:
+            </p>
+            <ul>
+                <li>RevenueCat may collect certain information as described in our Privacy Policy</li>
+                <li>Your purchase transaction is subject to the terms and conditions of your app store account</li>
+                <li>We may use anonymized purchase data for analytics and app improvement</li>
+            </ul>
+            <p>
+                For more information about RevenueCat's terms, please refer to their <a href="https://www.revenuecat.com/terms" target="_blank">Terms of Service</a>.
             </p>
 
-            <h3>3. Limitation of Liability</h3>
+            <h3>5. Limitation of Liability</h3>
             <p>
-                The app is provided "as is" without warranties of any kind. The developer is not responsible for any damages or data loss.
+                The app is provided "as is" without warranties of any kind, either express or implied. In no event shall Galactic Grid or its developers be liable for any direct, indirect, incidental, special, consequential, or punitive damages arising out of or relating to:
+            </p>
+            <ul>
+                <li>Your use or inability to use the app</li>
+                <li>Any transactions or purchases made through the app</li>
+                <li>Unauthorized access to or alteration of your data</li>
+                <li>Any other matter relating to the app</li>
+            </ul>
+
+            <h3>6. Changes to Terms</h3>
+            <p>
+                We reserve the right to modify these Terms of Service at any time. Changes will be effective immediately upon posting the updated terms within the app or on our website. Your continued use of the app after any changes constitute your acceptance of the new terms.
             </p>
 
-            <h3>4. Changes to Terms</h3>
+            <h3>7. Termination</h3>
             <p>
-                We may update these terms at any time.
+                We may terminate or suspend your access to the app immediately, without prior notice or liability, for any reason, including if you breach these Terms of Service.
             </p>
 
-            <h3>5. Contact</h3>
+            <h3>8. Governing Law</h3>
             <p>
-                If you have questions, contact us at: cosmic.grid.help@gmail.com
+                These terms shall be governed by and construed in accordance with the laws of the country in which the app developer resides, without regard to its conflict of law provisions.
+            </p>
+
+            <h3>9. Contact</h3>
+            <p>
+                If you have any questions about these Terms of Service, please contact us at: cosmic.grid.help@gmail.com
             </p>
         </div>
 
         <footer>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="revenue-stats.html">Purchase Statistics</a>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms-of-services.html">Terms of Service</a>
+            </div>
             <p>© 2025 Galactic Grid. All rights reserved.</p>
             <p>Contact: cosmic.grid.help@gmail.com</p>
         </footer>
